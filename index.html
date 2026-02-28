@@ -3,68 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SD Ghilmani - Official Website</title>
+    <title>SD GHILMANI - Membangun Generasi Qur'ani</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; line-height: 1.6; }
-        header { background: #2e7d32; color: white; padding: 1rem; text-align: center; }
-        nav { background: #388e3c; padding: 10px; text-align: center; }
-        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
-        .hero { background: #f4f4f4; padding: 60px 20px; text-align: center; }
-        .container { padding: 20px; max-width: 1000px; margin: auto; }
-        .features { display: flex; gap: 20px; justify-content: space-around; margin-top: 30px; }
-        .card { border: 1px solid #ddd; padding: 20px; border-radius: 8px; flex: 1; text-align: center; }
-        footer { background: #2e7d32; color: white; text-align: center; padding: 10px; position: fixed; bottom: 0; width: 100%; }
+        :root { --hijau-utama: #2e7d32; --hijau-muda: #4caf50; --putih: #ffffff; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; color: #333; background: #f9f9f9; }
+        
+        /* Header & Nav */
+        header { background: var(--hijau-utama); color: white; padding: 20px; text-align: center; border-bottom: 5px solid #1b5e20; }
+        nav { background: #fff; padding: 15px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); sticky: top; }
+        nav a { color: var(--hijau-utama); margin: 0 15px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+        nav a:hover { color: var(--hijau-muda); }
+
+        /* Hero Section */
+        .hero { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1577891913216-3d9692742413?auto=format&fit=crop&q=80') no-repeat center/cover; color: white; padding: 100px 20px; text-align: center; }
+        .btn-daftar { background: #ff9800; color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; font-size: 1.2rem; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: 0.3s; }
+        .btn-daftar:hover { background: #e68a00; transform: scale(1.05); }
+
+        /* Content Area */
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        .section-title { text-align: center; color: var(--hijau-utama); margin-bottom: 30px; }
+
+        /* Table Style */
+        table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        th { background: var(--hijau-utama); color: white; padding: 15px; }
+        td { padding: 12px; border-bottom: 1px solid #ddd; text-align: center; }
+        tr:hover { background: #f1f1f1; }
+
+        /* Floating WA */
+        .wa-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.3); z-index: 100; display: flex; align-items: center; justify-content: center; text-decoration: none; }
     </style>
 </head>
 <body>
 
 <header>
     <h1>SD GHILMANI</h1>
-    <p>Cerdas, Kreatif, Berakhlak Mulia</p>
+    <p>Sekolah Dasar Islam Terpadu - Cerdas & Berakhlak Mulia</p>
 </header>
 
 <nav>
-    <a href="#">Beranda</a>
-    <a href="#">Profil</a>
-    <a href="#">Akademik</a>
-    <a href="#">PPDB</a>
-    <a href="#">Kontak</a>
+    <a href="#profil">Profil</a>
+    <a href="#biaya">Informasi Biaya</a>
+    <a href="#ppdb">Daftar Sekarang</a>
 </nav>
 
 <section class="hero">
-    <h2>Selamat Datang di Generasi Pemenang</h2>
-    <p>Kami berkomitmen memberikan pendidikan terbaik dengan landasan nilai-nilai Islam.</p>
-   <a href="https://wa.me/628123456789?text=Halo%20Admin%20SD%20Ghilmani,%20saya%20ingin%20tanya%20prosedur%20pendaftaran" 
-   style="text-decoration: none; display: inline-block; padding: 10px 20px; background: #2e7d32; color: white; border-radius: 5px; font-weight: bold;">
-   Daftar Sekarang
-       <a href="PASTE_LINK_GOOGLE_FORM_DISINI" 
-   style="text-decoration: none; display: inline-block; padding: 10px 20px; background: #2e7d32; color: white; border-radius: 5px; font-weight: bold;">
-   Daftar Sekarang
-</a>
-</a>
+    <h2 style="font-size: 2.5rem;">Penerimaan Peserta Didik Baru 2026/2027</h2>
+    <p style="font-size: 1.2rem; margin-bottom: 30px;">Mari bergabung bersama keluarga besar SD Ghilmani untuk masa depan ananda yang lebih gemilang.</p>
+    <a href="https://forms.gle/ContohLinkGoogleForm" class="btn-daftar">KLIK UNTUK DAFTAR ONLINE</a>
+</section>
 
-<div class="container">
-    <h2 style="text-align: center;">Mengapa Memilih Kami?</h2>
-    <div class="features">
-        <div class="card">
-            <h3>Tahfidz Qur'an</h3>
-            <p>Target hafalan yang terukur dengan bimbingan ustadz berpengalaman.</p>
-        </div>
-        <div class="card">
-            <h3>Karakter Islami</h3>
-            <p>Fokus pada pembentukan adab sejak dini dalam lingkungan yang mendukung.</p>
-        </div>
-        <div class="card">
-            <h3>Fasilitas Lengkap</h3>
-            <p>Ruang kelas ber-AC, perpustakaan, dan area bermain yang luas.</p>
-        </div>
-    </div>
+<div class="container" id="biaya">
+    <h2 class="section-title">Estimasi Biaya Pendaftaran</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Komponen Biaya</th>
+                <th>Keterangan</th>
+                <th>Nominal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Formulir Pendaftaran</td>
+                <td>Satu kali bayar</td>
+                <td>Rp 250.000</td>
+            </tr>
+            <tr>
+                <td>Uang Pangkal / Gedung</td>
+                <td>Dapat diangsur</td>
+                <td>Rp 5.000.000</td>
+            </tr>
+            <tr>
+                <td>Seragam & Buku</td>
+                <td>5 Pasang Seragam</td>
+                <td>Rp 1.500.000</td>
+            </tr>
+            <tr>
+                <td>SPP Bulanan</td>
+                <td>Sudah termasuk uang makan</td>
+                <td>Rp 600.000</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
-<footer style="position: relative; margin-top: 50px;">
-    &copy; 2026 SD Ghilmani. All Rights Reserved.
+<div class="container" style="text-align: center; margin-bottom: 100px;">
+    <h2 class="section-title">Ada Pertanyaan?</h2>
+    <p>Tim admin kami siap melayani informasi seputar pendaftaran setiap hari kerja (08.00 - 15.00).</p>
+    <a href="https://wa.me/628123456789" style="color: var(--hijau-utama); font-weight: bold; font-size: 1.2rem;">Hubungi Kami di: 0812-3456-789</a>
+</div>
+
+<a href="https://wa.me/628123456789" class="wa-float" target="_blank">
+    <span style="font-size: 12px; font-weight: bold;">WA</span>
+</a>
+
+<footer style="background: #333; color: white; text-align: center; padding: 20px; font-size: 0.9rem;">
+    &copy; 2026 SD Ghilmani. All Rights Reserved.<br>
+    Jl. Pendidikan No. 123, Kota Anda.
 </footer>
 
 </body>
-
 </html>
