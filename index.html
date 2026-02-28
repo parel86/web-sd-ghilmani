@@ -3,74 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cek Nilai - SD Ghilmani</title>
+    <title>SD GHILMANI - Website Resmi</title>
     <style>
-        body { font-family: sans-serif; background: #f4f4f4; padding: 20px; }
-        .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        h2 { text-align: center; color: #2e7d32; }
-        input, button { width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ddd; box-sizing: border-box; }
-        button { background: #2e7d32; color: white; border: none; font-weight: bold; cursor: pointer; }
-        button:hover { background: #1b5e20; }
-        #hasil { margin-top: 20px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-        th { background-color: #f2f2f2; }
+        html { scroll-behavior: smooth; }
+        body { font-family: sans-serif; margin: 0; padding: 0; background: #f4f4f4; color: #333; }
+        
+        /* Navbar */
+        nav { 
+            position: sticky; top: 0; background: white; 
+            padding: 15px; text-align: center; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 1000;
+        }
+        nav a { margin: 0 10px; text-decoration: none; color: #2e7d32; font-weight: bold; }
+
+        /* Header */
+        header { background: #2e7d32; color: white; padding: 50px 20px; text-align: center; }
+        
+        /* Sections */
+        .section { padding: 80px 20px; max-width: 800px; margin: 20px auto; background: white; border-radius: 10px; }
+        h2 { color: #2e7d32; text-align: center; margin-bottom: 30px; }
+
+        /* Button WA & Daftar */
+        .btn {
+            display: inline-block; padding: 12px 25px; 
+            text-decoration: none; border-radius: 5px; font-weight: bold; margin: 5px;
+        }
+        .btn-daftar { background: #ff9800; color: white; }
+        .btn-wa { background: #25d366; color: white; }
+        
+        /* Syarat */
+        .box-syarat { background: #fff3e0; padding: 20px; border-radius: 5px; border-left: 5px solid #ff9800; }
+        
+        footer { text-align: center; padding: 20px; background: #333; color: white; margin-top: 40px; }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h2>Cek Nilai Siswa</h2>
-    <input type="text" id="nis" placeholder="Masukkan NIS Siswa (contoh: 1001)">
-    <button onclick="cariNilai()">Cek Nilai</button>
+<nav>
+    <a href="#beranda">Beranda</a>
+    <a href="#profil">Profil</a>
+    <a href="#ppdb">PPDB</a>
+    <a href="#kontak">Kontak</a>
+</nav>
 
-    <div id="hasil"></div>
+<header id="beranda">
+    <h1>SD GHILMANI</h1>
+    <p>Cerdas, Kreatif, Berakhlak Mulia</p>
+    <br>
+    <a href="#ppdb" class="btn btn-daftar">Daftar Sekarang</a>
+</header>
+
+<div id="profil" class="section">
+    <h2>Profil Sekolah</h2>
+    <p>SD Ghilmani adalah sekolah dasar berbasis nilai Islam yang berkomitmen membangun karakter shalih dan cerdas pada anak didik.</p>
 </div>
 
-<script>
-    // Link CSV dari Google Sheets Anda
-    const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vR5WOCA1luhVOzPfC8FbWcifKeLmkSlr8C8qFd60dN3KzZT8TVK3-bFgCwIozz0N2bNRf_ueA2lFZNt/pub?output=csv';
+<div id="ppdb" class="section">
+    <h2>Penerimaan Siswa Baru (PPDB)</h2>
+    
+    <div class="box-syarat">
+        <h3>Syarat Dokumen:</h3>
+        <ul>
+            <li>Fotocopy KK (2 lembar)</li>
+            <li>Fotocopy KTP Orang Tua (2 lembar)</li>
+            <li>Fotocopy Akta Kelahiran (2 lembar)</li>
+        </ul>
+    </div>
+    
+    <br>
+    <div style="text-align: center;">
+        <a href="https://forms.gle/4AE15nXV3fotKXPy8" class="btn btn-daftar" target="_blank">ISI FORM PENDAFTARAN</a>
+    </div>
+</div>
 
-    async function cariNilai() {
-        const nisInput = document.getElementById('nis').value;
-        const hasilDiv = document.getElementById('hasil');
-        hasilDiv.innerHTML = 'Mencari data...';
+<div id="kontak" class="section" style="text-align: center;">
+    <h2>Kontak Kami</h2>
+    <p>WhatsApp: 08176698749</p>
+    <a href="https://wa.me/628176698749" class="btn btn-wa">Chat WhatsApp</a>
+</div>
 
-        try {
-            const response = await fetch(csvUrl);
-            const data = await response.text();
-            const rows = data.split('\n');
-            
-            let html = '<h3>Hasil Pencarian:</h3>';
-            let found = false;
-
-            // Lewati baris pertama (judul)
-            for (let i = 1; i < rows.length; i++) {
-                const cols = rows[i].split(',');
-                if (cols[0] === nisInput) {
-                    found = true;
-                    html += `
-                        <table>
-                            <tr><th>NIS</th><td>${cols[0]}</td></tr>
-                            <tr><th>Nama</th><td>${cols[1]}</td></tr>
-                            <tr><th>Mapel</th><td>${cols[2]}</td></tr>
-                            <tr><th>Nilai</th><td>${cols[3]}</td></tr>
-                        </table>
-                        <br>
-                    `;
-                }
-            }
-
-            if (found) {
-                hasilDiv.innerHTML = html;
-            } else {
-                hasilDiv.innerHTML = 'Data tidak ditemukan.';
-            }
-        } catch (error) {
-            hasilDiv.innerHTML = 'Gagal mengambil data.';
-        }
-    }
-</script>
+<footer>
+    &copy; 2026 SD GHILMANI
+</footer>
 
 </body>
 </html>
